@@ -1,0 +1,14 @@
+version: '2'
+services:
+    platformaerasmus-app:
+        image: platformaerasmus
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://platformaerasmus-mysql:3306/platformaerasmus?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    platformaerasmus-mysql:
+        extends:
+            file: mysql.yml
+            service: platformaerasmus-mysql
