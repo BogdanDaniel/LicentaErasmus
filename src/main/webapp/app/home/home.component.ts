@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterContentInit, AfterViewChecked, Component, DoCheck, OnChanges, OnInit} from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
@@ -42,7 +42,12 @@ export class HomeComponent implements OnInit {
         return this.principal.isAuthenticated();
     }
 
+    areButtonsPressed() {
+        return this.principal.areButtonPressed();
+    }
+
     login() {
+        this.principal.setButtonStatus(true);
         this.modalRef = this.loginModalService.open();
     }
 }

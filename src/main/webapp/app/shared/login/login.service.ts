@@ -43,4 +43,8 @@ export class LoginService {
         this.authServerProvider.logout().subscribe();
         this.principal.authenticate(null);
     }
+
+    cancel() {
+        this.principal.setButtonStatus(false);
+    }
 }

@@ -16,7 +16,9 @@ export class LoginModalService {
         }
         this.isOpen = true;
         const modalRef = this.modalService.open(JhiLoginModalComponent, {
-            container: 'nav'
+            // container: 'nav'
+            backdrop: 'static',
+            keyboard: false
         });
         modalRef.result.then((result) => {
             this.isOpen = false;

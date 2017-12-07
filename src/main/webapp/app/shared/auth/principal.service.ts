@@ -7,6 +7,7 @@ import { AccountService } from './account.service';
 export class Principal {
     private userIdentity: any;
     private authenticated = false;
+    private buttonPressed = false;
     private authenticationState = new Subject<any>();
 
     constructor(
@@ -17,6 +18,7 @@ export class Principal {
         this.userIdentity = identity;
         this.authenticated = identity !== null;
         this.authenticationState.next(this.userIdentity);
+        this.setButtonStatus(false);
     }
 
     hasAnyAuthority(authorities: string[]): Promise<boolean> {
@@ -85,6 +87,14 @@ export class Principal {
 
     isIdentityResolved(): boolean {
         return this.userIdentity !== undefined;
+    }
+
+    areButtonPressed(): boolean {
+        return this.buttonPressed;
+    }
+
+    setButtonStatus(status: boolean) {
+        this.buttonPressed = status;
     }
 
     getAuthenticationState(): Observable<any> {

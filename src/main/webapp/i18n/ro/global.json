@@ -56,7 +56,7 @@
             "info": {
                 "authenticated": {
                     "prefix": "Dacă doriți să vă ",
-                    "link": "autentificați",
+                    "link": "Autentificați",
                     "suffix": ", puteți încerca conturile implicite:<br/>- Administrator (login=\"admin\" și parola=\"admin\") <br/>- Utilizator (login=\"user\" și parola=\"user\")."
                 },
                 "register": {

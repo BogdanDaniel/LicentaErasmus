@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-md-3">
-        <span class="hipster img-fluid img-rounded"></span>
+    <div class="col-md-12">
+        <span class="hipster"></span>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-12">
         <h1 class="display-4" jhiTranslate="home.title">Welcome, Erasmus's Platform!</h1>
         <!--<p class="lead" jhiTranslate="home.subtitle">This is your homepage</p>-->
         <div [ngSwitch]="isAuthenticated()">
@@ -12,15 +12,27 @@
                     translateValues="{username: '{{account.login}}'}"> You are logged in as user  "{{account.login}}". </span>
             </div>
 
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>
-                <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a><span jhiTranslate="global.messages.info.authenticated.suffix">, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>
-            </div>
+            <!--<div class="alert alert-warning" *ngSwitchCase="false">-->
+                <!--<span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>-->
+                <!--<a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a><span jhiTranslate="global.messages.info.authenticated.suffix">, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>-->
+            <!--</div>-->
 
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>
-                <a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+            <div  class="btn-login" *ngSwitchCase="false">
+                <button *ngIf="!areButtonsPressed()" class="btn btn-success" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</button>
             </div>
+            <div  class="btn-register" *ngSwitchCase="false">
+            <button *ngIf="!areButtonsPressed()" class="btn btn-danger" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</button>
+        </div>
+
+
+
+            <!--<div class="alert alert-warning" *ngSwitchCase="false">-->
+                <!--<span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>-->
+                <!--<a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
         </div>
 
         <!--<p jhiTranslate="home.question">-->
