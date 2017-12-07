@@ -18,10 +18,16 @@
             <!--</div>-->
 
             <div  class="btn-login" *ngSwitchCase="false">
-                <button *ngIf="!areButtonsPressed()" class="btn btn-success" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</button>
+                <button *ngIf="!areButtonsPressed()" class="btn btn-success" (click)="login()">
+                    <span class="btn-label"><label>{{"global.messages.info.authenticated.link" | translate}}</label>
+                    </span>
+                </button>
             </div>
             <div  class="btn-register" *ngSwitchCase="false">
-            <button *ngIf="!areButtonsPressed()" class="btn btn-danger" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</button>
+                <button *ngIf="!areButtonsPressed()" class="btn btn-danger" routerLink="register">
+                    <span class="btn-label"><label>{{"global.messages.info.register.link" | translate}}</label>
+                    </span>
+                </button>
         </div>
 
 
